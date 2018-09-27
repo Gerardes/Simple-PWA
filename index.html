@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- utf-8, yeah! -->
+    <meta charset="utf-8" />
+
+    <!-- title -->
+    <title>Simple PWA</title>
+
+    <!-- the good old favicon-->
+    <link rel="icon" type="image/png" href="images/icons/icon_512.png" />
+
+    <!-- tell the browser there is a manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- some modern stuff you just want to have -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- link to the styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
+
+    <!-- a google font, yes this one will work offline too -->
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+    <!-- good old wrapper, no grid or flex here! -->
+    <div class="wrapper">
+
+        <!-- the header, yeah! -->
+        <h1>Simple PWA</h1>
+
+        <!-- just a content block -->
+        <div class="block">
+            <h3>Welcome on this simple PWA app!</h3>
+            <p>This is a simple PWA i created to learn the basic about PWA without using any frameworks like Workbox, React, Angular, ect... I'll hope you can learn something from it like i do!</p>
+            <p class="right"><span class="name">Gerard</span></p>
+        </div>
+
+        <!-- a time block-->
+        <div class="block data-time">
+            <div id="date"></div>
+            <div id="time"></div>
+            <div id="sec"></div>
+        </div>
+
+        <!-- a simple photo block-->
+        <div class="block photo">
+            <sup id="loading">Waiting to load image... (3sec)</sup>
+            <img id="image" />
+            <div>Just a nice <a href="https://www.pexels.com/photo/woman-standing-on-wooden-dining-table-1443938/">picture</a> <span>:-)</span></div>
+        </div>
+
+        <!-- just a content block -->
+        <div class="block">
+            <h3>Lorem ipsum</h3>
+            <p>Dolor sit amet consectetur adipisicing elit. Exercitationem eligendi nam quaerat ipsa a. Quidem, officiis libero! Eveniet dicta quo exercitationem libero perspiciatis eius voluptatem quam, alias eligendi iure vel.</p>
+        </div>
+
+        <!-- and a footer -->
+        <footer>
+            Thanks for using Simple PWA. An idea by <a href="https://eideas.nl">eideas.nl</a>.
+        </footer>
+
+    </div>
+
+    <!-- ok, lets do some macig here. -->
+    <script>
+        // first check if the browser can handle ServiceWorkers
+        if ('serviceWorker' in navigator) {
+
+            // yes, it can now load it after the page is loaded
+            window.addEventListener('load', function() {
+
+                // no the page is loaded, try to register the ServiceWorker
+                navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
+
+                    // Registration was successful!
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+
+                }, function(err) {
+
+                    // registration failed :-(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+
+    <!-- just load the main script -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>
