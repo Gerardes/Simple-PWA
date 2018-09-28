@@ -1,5 +1,5 @@
-/* ###   Your inside the ServiceWorker, this   ### */
-/* ###   is where all the good stuff happens   ### */
+/* ###   Whoah, your inside the ServiceWorker!       ### */
+/* ###   This is where all the good stuff happends   ### */
 
 // Just a nice name for our cache database
 const cacheName = 'simple-pwa-cache';
