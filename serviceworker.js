@@ -1,4 +1,4 @@
-/* ###   Whoah, your inside the ServiceWorker!       ### */
+/* ###   Welcome in the Service Worker               ### */
 /* ###   This is where all the good stuff happends   ### */
 
 // Just a nice name for our cache database
